@@ -23,7 +23,7 @@ app.use(globalErrorHandler);
 app.use((req: Request, res: Response, next: NextFunction) => {
   res.status(status.NOT_FOUND).json({
     success: false,
-    message: "Api Not Fount",
+    message: "Api Not Found",
     error: {
       path: `${req.originalUrl} is wrong`,
       message: "your requested path is not found ",

@@ -1,6 +1,8 @@
 import multer from "multer";
 import path from "path";
+import fs from "fs";
 import { v2 as cloudinary } from "cloudinary";
+import { IFileUpload, TFile } from "../app/interfaces/file";
 
 cloudinary.config({
   cloud_name: "dmltobgnv",
@@ -18,15 +20,12 @@ const storage = multer.diskStorage({
 });
 
 // Upload an image
-export const uploadToCloudinary = async (file: any) => {
-  console.log(file);
+export const uploadToCloudinary = async (file: TFile): Promise<IFileUpload> => {
   return new Promise((resolve, reject) => {
     cloudinary.uploader.upload(
       file.path,
-      {
-        public_id: file.originalname,
-      },
-      (error, result) => {
+      (error: Error, result: IFileUpload) => {
+        fs.unlinkSync(file.path);
         if (error) {
           reject(error);
         } else {
