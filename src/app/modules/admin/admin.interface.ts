@@ -3,4 +3,5 @@ export type IQuery = {
   email?: string | undefined;
   searchTerm?: string | undefined;
   contactNumber?: string | undefined;
+  specialties?: string | undefined;
 };
