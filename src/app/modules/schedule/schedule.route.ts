@@ -8,6 +8,14 @@ const router = express.Router();
 
 router.get('/',authValidation(UserRole.DOCTOR),scheduleController.getAllFromDB)
 
+router.get('/:id',authValidation(UserRole.DOCTOR),scheduleController.getByIdFromDB)
+
 router.post("/",authValidation(UserRole.DOCTOR), scheduleController.createIntoDB);
 
+
+router.delete(
+    '/:id',
+    authValidation(UserRole.SUPER_ADMIN, UserRole.ADMIN),
+    scheduleController.deleteFromDB
+);
 export const ScheduleRoutes = router;
