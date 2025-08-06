@@ -151,7 +151,30 @@ const getAllFromDB = async (filters: IFilterRequest, options: IPagination, user:
     data: result,
   };
 };
+
+
+const getByIdFromDB = async (id: string): Promise<Schedule | null> => {
+    const result = await prisma.schedule.findUnique({
+        where: {
+            id,
+        },
+    });
+    return result;
+};
+
+const deleteFromDB = async (id: string): Promise<Schedule> => {
+    const result = await prisma.schedule.delete({
+        where: {
+            id,
+        },
+    });
+    return result;
+};
+
+
 export const scheduleServices = {
   createIntoDB,
   getAllFromDB,
+  getByIdFromDB,
+  deleteFromDB
 };
