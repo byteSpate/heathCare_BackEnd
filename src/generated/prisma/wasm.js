@@ -232,6 +232,18 @@ exports.Prisma.DoctorScheduleScalarFieldEnum = {
   appointmentId: 'appointmentId'
 };
 
+exports.Prisma.AppointmentScalarFieldEnum = {
+  id: 'id',
+  patientId: 'patientId',
+  doctorId: 'doctorId',
+  scheduleId: 'scheduleId',
+  videoCallingId: 'videoCallingId',
+  status: 'status',
+  paymentStatus: 'paymentStatus',
+  cratedAt: 'cratedAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -280,6 +292,18 @@ exports.MaritalStatus = exports.$Enums.MaritalStatus = {
   UNMARRIED: 'UNMARRIED'
 };
 
+exports.AppointmentStatus = exports.$Enums.AppointmentStatus = {
+  SCHEDULED: 'SCHEDULED',
+  INPROGRESS: 'INPROGRESS',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+};
+
+exports.PaymentStatus = exports.$Enums.PaymentStatus = {
+  PAID: 'PAID',
+  UNPAID: 'UNPAID'
+};
+
 exports.Prisma.ModelName = {
   User: 'User',
   Admin: 'Admin',
@@ -290,7 +314,8 @@ exports.Prisma.ModelName = {
   DoctorSpecialties: 'DoctorSpecialties',
   MedicalReport: 'MedicalReport',
   Schedule: 'Schedule',
-  DoctorSchedule: 'DoctorSchedule'
+  DoctorSchedule: 'DoctorSchedule',
+  Appointment: 'Appointment'
 };
 
 /**

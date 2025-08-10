@@ -198,7 +198,7 @@ const getAllFromDB = async (
     (schedule) => schedule.scheduleId
   );
 
-  console.log(doctorSchedulesIds);
+
 
   const result = await prisma.schedule.findMany({
     where: {

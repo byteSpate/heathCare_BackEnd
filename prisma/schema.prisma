@@ -65,6 +65,7 @@ model Doctor {
   user              User                @relation(fields: [email], references: [email])
   doctorSpecialties DoctorSpecialties[]
   doctorSchedule    DoctorSchedule[]
+  appointment       Appointment[]
 
   @@map("doctors")
 }
@@ -82,6 +83,7 @@ model Patient {
   user              User               @relation(fields: [email], references: [email])
   patientHealthData PatientHealthData?
   medicalReport     MedicalReport[]
+  appointment       Appointment[]
 
   @@map("patients")
 }
@@ -150,22 +152,41 @@ model Schedule {
   createdAt      DateTime         @default(now())
   updatedAt      DateTime         @updatedAt
   doctorSchedule DoctorSchedule[]
-
+  appointment     Appointment?
   @@map("schedules")
 }
 
 model DoctorSchedule {
   doctorId      String
-  doctor       Doctor   @relation(fields: [doctorId], references: [id])
+  doctor        Doctor   @relation(fields: [doctorId], references: [id])
   scheduleId    String
   schedule      Schedule @relation(fields: [scheduleId], references: [id])
-  isBooked      Boolean @default(false)
-  appointmentId String ?
+  isBooked      Boolean  @default(false)
+  appointmentId String?
 
   @@id([doctorId, scheduleId])
   @@map("doctorSchedules")
 }
- 
+
+model Appointment {
+  id             String            @id @default(uuid())
+  patientId      String
+  patient        Patient           @relation(fields: [patientId], references: [id])
+  doctorId      String
+  doctor         Doctor            @relation(fields: [doctorId], references: [id])
+  scheduleId     String @unique
+  schedule       Schedule    @relation(fields: [scheduleId], references: [id])
+  videoCallingId String
+  status         AppointmentStatus @default(SCHEDULED)
+  paymentStatus  PaymentStatus @default(UNPAID)
+  cratedAt       DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+
+  @@map("appointments")
+}
+
+
+
 enum Gender {
   MALE
   FEMALE
@@ -198,4 +219,16 @@ enum BloodGroup {
 enum MaritalStatus {
   MARRIED
   UNMARRIED
+}
+
+enum AppointmentStatus {
+  SCHEDULED
+  INPROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  PAID
+  UNPAID
 }

@@ -40,20 +40,6 @@ const getAllFromDB = async (query: IQuery, options: IPagination) => {
     });
   }
 
-  //   if (specialties && specialties.length > 0) {
-  //     andConditions.push({
-  //       doctorSpecialties: {
-  //         some: {
-  //           specialties: {
-  //             title: {
-  //               contains: specialties,
-  //               mode: "insensitive",
-  //             },
-  //           },
-  //         },
-  //       },
-  //     });
-  //   }
 
   andConditions.push({
     isDeleted: false,
