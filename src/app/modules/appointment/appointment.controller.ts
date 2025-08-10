@@ -6,6 +6,7 @@ import { appointmentFilterableFields } from "./appointment.constant";
 import { catchAsync } from "../../../helpers/catchAsync";
 import { AppointmentService } from "./appointment.service";
 import { sendResponse } from "../../../helpers/sendResponse";
+import { stat } from "fs";
 
 const createAppointment = catchAsync(async (req: Request & { user?: IAuthUser }, res: Response) => {
 
@@ -50,9 +51,12 @@ const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
 });
 
 const changeAppointmentStatus = catchAsync(async (req: Request & { user?: IAuthUser }, res: Response) => {
+    console.log(res)
     const { id } = req.params;
     const { status } = req.body;
     const user = req.user;
+
+    console.log(status, id, user);
 
     const result = await AppointmentService.changeAppointmentStatus(id, status, user as IAuthUser);
     sendResponse(res, {

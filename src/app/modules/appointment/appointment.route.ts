@@ -8,12 +8,13 @@ import { AppointmentValidation } from './appointment.validation';
 
 const router = express.Router();
 
-/**
- * ENDPOINT: /appointment/
- * 
- * Get all appointment with filtering
- * Only accessable for Admin & Super Admin
- */
+router.post(
+    '/',
+    authValidation(UserRole.PATIENT),
+    // validateRequest(AppointmentValidation.createAppointment),
+    AppointmentController.createAppointment
+);
+
 router.get(
     '/',
     authValidation(UserRole.SUPER_ADMIN, UserRole.ADMIN),
@@ -26,12 +27,6 @@ router.get(
     AppointmentController.getMyAppointment
 )
 
-router.post(
-    '/',
-    authValidation(UserRole.PATIENT),
-    validateRequest(AppointmentValidation.createAppointment),
-    AppointmentController.createAppointment
-);
 
 router.patch(
     '/status/:id',

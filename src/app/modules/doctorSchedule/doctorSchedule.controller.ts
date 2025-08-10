@@ -64,7 +64,7 @@ const getAllFromDB: RequestHandler = catchAsync(
     sendResponse(res, {
       statusCode: 200,
       success: true,
-      message: "Schedule Fetched Successfully",
+      message: "All Doctor Schedule Fetched Successfully",
       data: result,
     });
   }
