@@ -5,7 +5,7 @@ import httpStatus from "http-status";
 import { prisma } from "../../../shared/prisma";
 import { paginationHelper } from "../../../helpers/paginationHelper";
 import { IPagination } from "../../interfaces/paginationInterface";
-import { AppointmentStatus, Prisma } from "../../../generated/prisma";
+import { AppointmentStatus, PaymentStatus, Prisma, UserRole } from "../../../generated/prisma";
 
 
 const createAppointment = async (user: IAuthUser, payload: any) => {
@@ -15,7 +15,7 @@ const createAppointment = async (user: IAuthUser, payload: any) => {
         }
     });
 
-    // console.log({patientData},{payload});
+
 
     const doctorData = await prisma.doctor.findUniqueOrThrow({
         where: {
@@ -23,7 +23,7 @@ const createAppointment = async (user: IAuthUser, payload: any) => {
         }
     });
 
-    console.log({doctorData})
+
 
     await prisma.doctorSchedule.findFirstOrThrow({
         where: {
@@ -36,6 +36,8 @@ const createAppointment = async (user: IAuthUser, payload: any) => {
     // const videoCallingId: string = uuidv4();
 
     const videoCallingId = "PH-HealthCare-" + new Date().getTime() + "-" + doctorData.id + "-" + patientData.id;
+
+    console.log(videoCallingId)
 
     const result = await prisma.$transaction(async (tx) => {
         const appointmentData = await tx.appointment.create({
@@ -70,13 +72,15 @@ const createAppointment = async (user: IAuthUser, payload: any) => {
 
         const transactionId = "PH-HealthCare-" + today.getFullYear() + "-" + today.getMonth() + "-" + today.getDay() + "-" + today.getHours() + "-" + today.getMinutes();
 
-        // await tx.payment.create({
-        //     data: {
-        //         appointmentId: appointmentData.id,
-        //         amount: doctorData.appointmentFee,
-        //         transactionId
-        //     }
-        // })
+
+        console.log(transactionId)
+        await tx.payment.create({
+            data: {
+                appointmentId: appointmentData.id,
+                amount: doctorData.appointmentFee,
+                transactionId
+            }
+        })
 
         return appointmentData;
     })
@@ -126,12 +130,12 @@ const getAllFromDB = async (
         where: whereConditions,
         skip,
         take: limit,
-        // orderBy:
-        //     options.sortBy && options.sortOrder
-        //         ? { [options.sortBy]: options.sortOrder }
-        //         : {
-        //             createdAt: 'desc',
-        //         },
+        orderBy:
+            options.sortBy && options.sortOrder
+                ? { [options.sortBy]: options.sortOrder}
+                : {
+                    createdAt: 'desc' 
+                },
         include: {
             doctor: true,
             patient: true
@@ -150,8 +154,6 @@ const getAllFromDB = async (
         data: result,
     };
 };
-
-
 
 const getMyAppointment = async (user: IAuthUser, filters: any, options: IPagination) => {
 
@@ -191,9 +193,9 @@ const getMyAppointment = async (user: IAuthUser, filters: any, options: IPaginat
         where: whereConditions,
         skip,
         take: limit,
-        orderBy: options.sortBy && options.sortOrder
-            ? { [options.sortBy]: options.sortOrder }
-            : { createdAt: 'desc' },
+        // orderBy: options.sortBy && options.sortOrder
+        //     ? { [options.sortBy]: options.sortOrder }
+        //     : { createdAt: 'desc' },
         include: user?.role === UserRole.PATIENT
             ? { doctor: true, schedule: true } : { patient: { include: { medicalReport: true, patientHealthData: true } }, schedule: true }
     });
@@ -211,8 +213,6 @@ const getMyAppointment = async (user: IAuthUser, filters: any, options: IPaginat
         data: result,
     };
 };
-
-
 
 const changeAppointmentStatus = async (appointmentId: string, status: AppointmentStatus , user: IAuthUser) => {
     const appointmentData = await prisma.appointment.findUniqueOrThrow({
@@ -275,7 +275,7 @@ const cancelUnpaidAppointments = async () => {
         });
 
         for (const upPaidAppointment of unPaidAppointments) {
-            await tx.doctorSchedules.updateMany({
+            await tx.doctorSchedule.updateMany({
                 where: {
                     doctorId: upPaidAppointment.doctorId,
                     scheduleId: upPaidAppointment.scheduleId

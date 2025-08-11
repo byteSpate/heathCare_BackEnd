@@ -11,7 +11,7 @@ const router = express.Router();
 router.post(
     '/',
     authValidation(UserRole.PATIENT),
-    // validateRequest(AppointmentValidation.createAppointment),
+    validateRequest(AppointmentValidation.createAppointment),
     AppointmentController.createAppointment
 );
 
