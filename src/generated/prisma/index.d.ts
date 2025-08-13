@@ -16158,7 +16158,7 @@ export namespace Prisma {
     patientId: string | null
     instructions: string | null
     followUpDate: Date | null
-    cratedAt: Date | null
+    createdAt: Date | null
     updatedAt: Date | null
   }
 
@@ -16169,7 +16169,7 @@ export namespace Prisma {
     patientId: string | null
     instructions: string | null
     followUpDate: Date | null
-    cratedAt: Date | null
+    createdAt: Date | null
     updatedAt: Date | null
   }
 
@@ -16180,7 +16180,7 @@ export namespace Prisma {
     patientId: number
     instructions: number
     followUpDate: number
-    cratedAt: number
+    createdAt: number
     updatedAt: number
     _all: number
   }
@@ -16193,7 +16193,7 @@ export namespace Prisma {
     patientId?: true
     instructions?: true
     followUpDate?: true
-    cratedAt?: true
+    createdAt?: true
     updatedAt?: true
   }
 
@@ -16204,7 +16204,7 @@ export namespace Prisma {
     patientId?: true
     instructions?: true
     followUpDate?: true
-    cratedAt?: true
+    createdAt?: true
     updatedAt?: true
   }
 
@@ -16215,7 +16215,7 @@ export namespace Prisma {
     patientId?: true
     instructions?: true
     followUpDate?: true
-    cratedAt?: true
+    createdAt?: true
     updatedAt?: true
     _all?: true
   }
@@ -16299,7 +16299,7 @@ export namespace Prisma {
     patientId: string
     instructions: string
     followUpDate: Date | null
-    cratedAt: Date
+    createdAt: Date
     updatedAt: Date
     _count: PrescriptionCountAggregateOutputType | null
     _min: PrescriptionMinAggregateOutputType | null
@@ -16327,7 +16327,7 @@ export namespace Prisma {
     patientId?: boolean
     instructions?: boolean
     followUpDate?: boolean
-    cratedAt?: boolean
+    createdAt?: boolean
     updatedAt?: boolean
     appointment?: boolean | AppointmentDefaultArgs<ExtArgs>
     doctor?: boolean | DoctorDefaultArgs<ExtArgs>
@@ -16341,7 +16341,7 @@ export namespace Prisma {
     patientId?: boolean
     instructions?: boolean
     followUpDate?: boolean
-    cratedAt?: boolean
+    createdAt?: boolean
     updatedAt?: boolean
     appointment?: boolean | AppointmentDefaultArgs<ExtArgs>
     doctor?: boolean | DoctorDefaultArgs<ExtArgs>
@@ -16355,7 +16355,7 @@ export namespace Prisma {
     patientId?: boolean
     instructions?: boolean
     followUpDate?: boolean
-    cratedAt?: boolean
+    createdAt?: boolean
     updatedAt?: boolean
     appointment?: boolean | AppointmentDefaultArgs<ExtArgs>
     doctor?: boolean | DoctorDefaultArgs<ExtArgs>
@@ -16369,11 +16369,11 @@ export namespace Prisma {
     patientId?: boolean
     instructions?: boolean
     followUpDate?: boolean
-    cratedAt?: boolean
+    createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type PrescriptionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "appointmentId" | "doctorId" | "patientId" | "instructions" | "followUpDate" | "cratedAt" | "updatedAt", ExtArgs["result"]["prescription"]>
+  export type PrescriptionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "appointmentId" | "doctorId" | "patientId" | "instructions" | "followUpDate" | "createdAt" | "updatedAt", ExtArgs["result"]["prescription"]>
   export type PrescriptionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     appointment?: boolean | AppointmentDefaultArgs<ExtArgs>
     doctor?: boolean | DoctorDefaultArgs<ExtArgs>
@@ -16404,7 +16404,7 @@ export namespace Prisma {
       patientId: string
       instructions: string
       followUpDate: Date | null
-      cratedAt: Date
+      createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["prescription"]>
     composites: {}
@@ -16838,7 +16838,7 @@ export namespace Prisma {
     readonly patientId: FieldRef<"Prescription", 'String'>
     readonly instructions: FieldRef<"Prescription", 'String'>
     readonly followUpDate: FieldRef<"Prescription", 'DateTime'>
-    readonly cratedAt: FieldRef<"Prescription", 'DateTime'>
+    readonly createdAt: FieldRef<"Prescription", 'DateTime'>
     readonly updatedAt: FieldRef<"Prescription", 'DateTime'>
   }
     
@@ -18593,7 +18593,7 @@ export namespace Prisma {
     patientId: 'patientId',
     instructions: 'instructions',
     followUpDate: 'followUpDate',
-    cratedAt: 'cratedAt',
+    createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
@@ -19775,7 +19775,7 @@ export namespace Prisma {
     patientId?: StringFilter<"Prescription"> | string
     instructions?: StringFilter<"Prescription"> | string
     followUpDate?: DateTimeNullableFilter<"Prescription"> | Date | string | null
-    cratedAt?: DateTimeFilter<"Prescription"> | Date | string
+    createdAt?: DateTimeFilter<"Prescription"> | Date | string
     updatedAt?: DateTimeFilter<"Prescription"> | Date | string
     appointment?: XOR<AppointmentScalarRelationFilter, AppointmentWhereInput>
     doctor?: XOR<DoctorScalarRelationFilter, DoctorWhereInput>
@@ -19789,7 +19789,7 @@ export namespace Prisma {
     patientId?: SortOrder
     instructions?: SortOrder
     followUpDate?: SortOrderInput | SortOrder
-    cratedAt?: SortOrder
+    createdAt?: SortOrder
     updatedAt?: SortOrder
     appointment?: AppointmentOrderByWithRelationInput
     doctor?: DoctorOrderByWithRelationInput
@@ -19806,7 +19806,7 @@ export namespace Prisma {
     patientId?: StringFilter<"Prescription"> | string
     instructions?: StringFilter<"Prescription"> | string
     followUpDate?: DateTimeNullableFilter<"Prescription"> | Date | string | null
-    cratedAt?: DateTimeFilter<"Prescription"> | Date | string
+    createdAt?: DateTimeFilter<"Prescription"> | Date | string
     updatedAt?: DateTimeFilter<"Prescription"> | Date | string
     appointment?: XOR<AppointmentScalarRelationFilter, AppointmentWhereInput>
     doctor?: XOR<DoctorScalarRelationFilter, DoctorWhereInput>
@@ -19820,7 +19820,7 @@ export namespace Prisma {
     patientId?: SortOrder
     instructions?: SortOrder
     followUpDate?: SortOrderInput | SortOrder
-    cratedAt?: SortOrder
+    createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: PrescriptionCountOrderByAggregateInput
     _max?: PrescriptionMaxOrderByAggregateInput
@@ -19837,7 +19837,7 @@ export namespace Prisma {
     patientId?: StringWithAggregatesFilter<"Prescription"> | string
     instructions?: StringWithAggregatesFilter<"Prescription"> | string
     followUpDate?: DateTimeNullableWithAggregatesFilter<"Prescription"> | Date | string | null
-    cratedAt?: DateTimeWithAggregatesFilter<"Prescription"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"Prescription"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Prescription"> | Date | string
   }
 
@@ -20935,7 +20935,7 @@ export namespace Prisma {
     id?: string
     instructions: string
     followUpDate?: Date | string | null
-    cratedAt?: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
     appointment: AppointmentCreateNestedOneWithoutPrescriptionInput
     doctor: DoctorCreateNestedOneWithoutPrescriptionInput
@@ -20949,7 +20949,7 @@ export namespace Prisma {
     patientId: string
     instructions: string
     followUpDate?: Date | string | null
-    cratedAt?: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
   }
 
@@ -20957,7 +20957,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     instructions?: StringFieldUpdateOperationsInput | string
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cratedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     appointment?: AppointmentUpdateOneRequiredWithoutPrescriptionNestedInput
     doctor?: DoctorUpdateOneRequiredWithoutPrescriptionNestedInput
@@ -20971,7 +20971,7 @@ export namespace Prisma {
     patientId?: StringFieldUpdateOperationsInput | string
     instructions?: StringFieldUpdateOperationsInput | string
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cratedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -20982,7 +20982,7 @@ export namespace Prisma {
     patientId: string
     instructions: string
     followUpDate?: Date | string | null
-    cratedAt?: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
   }
 
@@ -20990,7 +20990,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     instructions?: StringFieldUpdateOperationsInput | string
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cratedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -21001,7 +21001,7 @@ export namespace Prisma {
     patientId?: StringFieldUpdateOperationsInput | string
     instructions?: StringFieldUpdateOperationsInput | string
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cratedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -22023,7 +22023,7 @@ export namespace Prisma {
     patientId?: SortOrder
     instructions?: SortOrder
     followUpDate?: SortOrder
-    cratedAt?: SortOrder
+    createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
@@ -22034,7 +22034,7 @@ export namespace Prisma {
     patientId?: SortOrder
     instructions?: SortOrder
     followUpDate?: SortOrder
-    cratedAt?: SortOrder
+    createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
@@ -22045,7 +22045,7 @@ export namespace Prisma {
     patientId?: SortOrder
     instructions?: SortOrder
     followUpDate?: SortOrder
-    cratedAt?: SortOrder
+    createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
@@ -23966,7 +23966,7 @@ export namespace Prisma {
     id?: string
     instructions: string
     followUpDate?: Date | string | null
-    cratedAt?: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
     appointment: AppointmentCreateNestedOneWithoutPrescriptionInput
     patient: PatientCreateNestedOneWithoutPrescriptionInput
@@ -23978,7 +23978,7 @@ export namespace Prisma {
     patientId: string
     instructions: string
     followUpDate?: Date | string | null
-    cratedAt?: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
   }
 
@@ -24166,7 +24166,7 @@ export namespace Prisma {
     patientId?: StringFilter<"Prescription"> | string
     instructions?: StringFilter<"Prescription"> | string
     followUpDate?: DateTimeNullableFilter<"Prescription"> | Date | string | null
-    cratedAt?: DateTimeFilter<"Prescription"> | Date | string
+    createdAt?: DateTimeFilter<"Prescription"> | Date | string
     updatedAt?: DateTimeFilter<"Prescription"> | Date | string
   }
 
@@ -24350,7 +24350,7 @@ export namespace Prisma {
     id?: string
     instructions: string
     followUpDate?: Date | string | null
-    cratedAt?: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
     appointment: AppointmentCreateNestedOneWithoutPrescriptionInput
     doctor: DoctorCreateNestedOneWithoutPrescriptionInput
@@ -24362,7 +24362,7 @@ export namespace Prisma {
     doctorId: string
     instructions: string
     followUpDate?: Date | string | null
-    cratedAt?: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
   }
 
@@ -25433,7 +25433,7 @@ export namespace Prisma {
     id?: string
     instructions: string
     followUpDate?: Date | string | null
-    cratedAt?: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
     doctor: DoctorCreateNestedOneWithoutPrescriptionInput
     patient: PatientCreateNestedOneWithoutPrescriptionInput
@@ -25445,7 +25445,7 @@ export namespace Prisma {
     patientId: string
     instructions: string
     followUpDate?: Date | string | null
-    cratedAt?: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
   }
 
@@ -25679,7 +25679,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     instructions?: StringFieldUpdateOperationsInput | string
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cratedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     doctor?: DoctorUpdateOneRequiredWithoutPrescriptionNestedInput
     patient?: PatientUpdateOneRequiredWithoutPrescriptionNestedInput
@@ -25691,7 +25691,7 @@ export namespace Prisma {
     patientId?: StringFieldUpdateOperationsInput | string
     instructions?: StringFieldUpdateOperationsInput | string
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cratedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -26365,7 +26365,7 @@ export namespace Prisma {
     patientId: string
     instructions: string
     followUpDate?: Date | string | null
-    cratedAt?: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
   }
 
@@ -26454,7 +26454,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     instructions?: StringFieldUpdateOperationsInput | string
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cratedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     appointment?: AppointmentUpdateOneRequiredWithoutPrescriptionNestedInput
     patient?: PatientUpdateOneRequiredWithoutPrescriptionNestedInput
@@ -26466,7 +26466,7 @@ export namespace Prisma {
     patientId?: StringFieldUpdateOperationsInput | string
     instructions?: StringFieldUpdateOperationsInput | string
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cratedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -26476,7 +26476,7 @@ export namespace Prisma {
     patientId?: StringFieldUpdateOperationsInput | string
     instructions?: StringFieldUpdateOperationsInput | string
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cratedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -26535,7 +26535,7 @@ export namespace Prisma {
     doctorId: string
     instructions: string
     followUpDate?: Date | string | null
-    cratedAt?: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
   }
 
@@ -26618,7 +26618,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     instructions?: StringFieldUpdateOperationsInput | string
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cratedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     appointment?: AppointmentUpdateOneRequiredWithoutPrescriptionNestedInput
     doctor?: DoctorUpdateOneRequiredWithoutPrescriptionNestedInput
@@ -26630,7 +26630,7 @@ export namespace Prisma {
     doctorId?: StringFieldUpdateOperationsInput | string
     instructions?: StringFieldUpdateOperationsInput | string
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cratedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -26640,7 +26640,7 @@ export namespace Prisma {
     doctorId?: StringFieldUpdateOperationsInput | string
     instructions?: StringFieldUpdateOperationsInput | string
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cratedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 

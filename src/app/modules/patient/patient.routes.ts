@@ -23,7 +23,7 @@ router.patch(
     UserRole.DOCTOR,
     UserRole.PATIENT
   ),
-  //   validateRequest(adminValidationSchemas.update),
+  //   validateRequest(adminValidationSchemas.update), I
   patientController.updateIntoDB
 );
 

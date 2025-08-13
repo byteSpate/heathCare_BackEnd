@@ -27,12 +27,13 @@ router.get(
     AppointmentController.getMyAppointment
 )
 
-
 router.patch(
     '/status/:id',
     authValidation(UserRole.SUPER_ADMIN, UserRole.ADMIN, UserRole.DOCTOR),
     AppointmentController.changeAppointmentStatus
 );
+
+
 
 
 

@@ -6,7 +6,6 @@ import { appointmentFilterableFields } from "./appointment.constant";
 import { catchAsync } from "../../../helpers/catchAsync";
 import { AppointmentService } from "./appointment.service";
 import { sendResponse } from "../../../helpers/sendResponse";
-import { stat } from "fs";
 
 const createAppointment = catchAsync(async (req: Request & { user?: IAuthUser }, res: Response) => {
 
