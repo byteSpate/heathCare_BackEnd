@@ -3,4 +3,5 @@ export type IPagination = {
   limit?: number;
   sortBy?: string | undefined;
   sortOrder?: string | undefined;
+  createdAt?: Date | undefined;
 };

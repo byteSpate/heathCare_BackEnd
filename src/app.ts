@@ -4,6 +4,10 @@ import cors from "cors";
 import router from "./app/routes";
 import { globalErrorHandler } from "./app/middlewares/globalErrorHandler";
 import cookieParser from "cookie-parser";
+import { AppointmentService } from "./app/modules/appointment/appointment.service";
+import cron from "node-cron";
+import ApiError from "./app/errors/ApiError";
+import httpStatus from "http-status";
 const app: Application = express();
 
 app.use(cors());
@@ -15,6 +19,17 @@ app.use(cookieParser());
 
 // app.use("/api/v1/users", userRoutes);
 // app.use("/api/v1/admins", adminRoutes);
+
+
+cron.schedule('* * * * *', () => {
+  try {
+    AppointmentService.cancelUnpaidAppointments()
+  } catch (error) {
+    throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, 'Failed to cancel unpaid appointments');
+  }
+});
+
+
 
 app.use("/api/v1", router);
 

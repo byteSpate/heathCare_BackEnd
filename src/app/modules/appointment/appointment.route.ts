@@ -11,7 +11,7 @@ const router = express.Router();
 router.post(
     '/',
     authValidation(UserRole.PATIENT),
-    // validateRequest(AppointmentValidation.createAppointment),
+    validateRequest(AppointmentValidation.createAppointment),
     AppointmentController.createAppointment
 );
 
@@ -27,12 +27,13 @@ router.get(
     AppointmentController.getMyAppointment
 )
 
-
 router.patch(
     '/status/:id',
     authValidation(UserRole.SUPER_ADMIN, UserRole.ADMIN, UserRole.DOCTOR),
     AppointmentController.changeAppointmentStatus
 );
+
+
 
 
 
