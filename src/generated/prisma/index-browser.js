@@ -305,8 +305,8 @@ exports.Prisma.JsonNullValueFilter = {
 exports.UserRole = exports.$Enums.UserRole = {
   SUPER_ADMIN: 'SUPER_ADMIN',
   ADMIN: 'ADMIN',
-  DOCTOR: 'DOCTOR',
-  PATIENT: 'PATIENT'
+  PATIENT: 'PATIENT',
+  DOCTOR: 'DOCTOR'
 };
 
 exports.UserStatus = exports.$Enums.UserStatus = {

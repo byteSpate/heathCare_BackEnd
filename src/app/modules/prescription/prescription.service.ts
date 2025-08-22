@@ -11,7 +11,6 @@ const createIntoDB = async (user: IAuthUser, payload: any) => {
   const appointmentData = await prisma.appointment.findUniqueOrThrow({
     where: {
       id: payload.appointmentId,
-      status: AppointmentStatus.COMPLETED,
       paymentStatus: PaymentStatus.PAID,
     },
     include: {

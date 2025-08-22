@@ -163,13 +163,13 @@ const deleteFromDB = async (id: string) => {
         patientId: id,
       },
     });
-    if (patient.patientHealthData)
-      // delete patient health data
-      await tx.patientHealthData.delete({
-        where: {
-          patientId: id,
-        },
-      });
+    // if (patient.patientHealthData)
+    //   // delete patient health data
+    //   await tx.patientHealthData.delete({
+    //     where: {
+    //       patientId: id,
+    //     },
+    //   });
 
     const patientDeleteData = await tx.patient.delete({
       where: {

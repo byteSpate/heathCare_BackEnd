@@ -111,3 +111,6 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   }
 }
+
+
+// # DATABASE_URL="postgresql://abdullahalnoman:123456@localhost:5432/health_care?schema=public"

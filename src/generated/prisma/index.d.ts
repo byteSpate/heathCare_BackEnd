@@ -99,8 +99,8 @@ export type Gender = (typeof Gender)[keyof typeof Gender]
 export const UserRole: {
   SUPER_ADMIN: 'SUPER_ADMIN',
   ADMIN: 'ADMIN',
-  DOCTOR: 'DOCTOR',
-  PATIENT: 'PATIENT'
+  PATIENT: 'PATIENT',
+  DOCTOR: 'DOCTOR'
 };
 
 export type UserRole = (typeof UserRole)[keyof typeof UserRole]

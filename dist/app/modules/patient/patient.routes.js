@@ -1,0 +1,19 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PatientRoutes = void 0;
+const authValidation_1 = require("./../../middlewares/authValidation");
+const express_1 = __importDefault(require("express"));
+const prisma_1 = require("../../../generated/prisma");
+const patient_controller_1 = require("./patient.controller");
+const router = express_1.default.Router();
+router.get("/", (0, authValidation_1.authValidation)(prisma_1.UserRole.SUPER_ADMIN, prisma_1.UserRole.ADMIN), patient_controller_1.patientController.getAllFromDB);
+router.get("/:id", (0, authValidation_1.authValidation)(prisma_1.UserRole.ADMIN, prisma_1.UserRole.SUPER_ADMIN), patient_controller_1.patientController.getByIdFromDB);
+router.patch("/:id", (0, authValidation_1.authValidation)(prisma_1.UserRole.SUPER_ADMIN, prisma_1.UserRole.ADMIN, prisma_1.UserRole.DOCTOR, prisma_1.UserRole.PATIENT), 
+//   validateRequest(adminValidationSchemas.update), I
+patient_controller_1.patientController.updateIntoDB);
+router.delete("/:id", patient_controller_1.patientController.deleteFromDB);
+router.delete("/soft/:id", (0, authValidation_1.authValidation)(prisma_1.UserRole.SUPER_ADMIN, prisma_1.UserRole.ADMIN), patient_controller_1.patientController.softDeleteFromDB);
+exports.PatientRoutes = router;

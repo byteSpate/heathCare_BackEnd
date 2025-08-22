@@ -6,11 +6,11 @@ import { UserRole } from "../../../generated/prisma";
 
 const router = express.Router();
 
-router.get('/',authValidation(UserRole.DOCTOR),scheduleController.getAllFromDB)
+router.get('/',authValidation(UserRole.ADMIN,UserRole.DOCTOR),scheduleController.getAllFromDB)
 
-router.get('/:id',authValidation(UserRole.DOCTOR),scheduleController.getByIdFromDB)
+router.get('/:id',authValidation(UserRole.ADMIN,UserRole.DOCTOR),scheduleController.getByIdFromDB)
 
-router.post("/",authValidation(UserRole.DOCTOR), scheduleController.createIntoDB);
+router.post("/",authValidation(UserRole.ADMIN,UserRole.DOCTOR), scheduleController.createIntoDB);
 
 
 router.delete(
