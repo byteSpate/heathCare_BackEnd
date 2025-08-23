@@ -7,12 +7,12 @@ const router = express.Router();
 
 router.get(
   "/",
-  authValidation(UserRole.SUPER_ADMIN, UserRole.ADMIN),
+  authValidation(UserRole.SUPER_ADMIN, UserRole.ADMIN,UserRole.PATIENT),
   doctorController.getAllFromDB
 );
 router.get(
   "/:id",
-  authValidation(UserRole.ADMIN, UserRole.SUPER_ADMIN),
+  authValidation(UserRole.ADMIN, UserRole.SUPER_ADMIN,UserRole.PATIENT),
   doctorController.getByIdFromDB
 );
 router.patch(
